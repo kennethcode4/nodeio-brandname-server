@@ -23,7 +23,14 @@
       console.log('Message received from server: ', payload);
     });
 
-    socket.emit('message', {nombre: 'Kenneth'});
+    socket.on('active-bands', (payload) => {
+      console.clear(); 
+      console.table(payload);
+    });
+
+    socket.on('emitir-mensaje', (payload) => {
+      console.log('Flutter emitiendo : ', payload);
+    });
   </script>
 </body>
 
