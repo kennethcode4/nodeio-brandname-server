@@ -35,6 +35,11 @@ io.on("connection", (client) => {
     io.emit("active-bands", bands.getBands());
   });
 
+  client.on("delete-band", (payload) => {
+    bands.deleteBand(payload.id);
+    io.emit("active-band", bands.getBands());
+  });
+
   // client.on("emitir-mensaje", (payload) => {
   //   console.log("Flutter emitiendo : ", payload);
   //   client.broadcast.emit("emitir-mensaje", payload); // emite a todos menos al cliente que emitio
